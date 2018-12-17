@@ -43,7 +43,7 @@ public class MusicHistoryListAdapter extends BaseQuickAdapter<Music, BaseViewHol
                 if (menu.getItemId() == R.id.action_remove) {
                     remove(helper.getLayoutPosition());
                     MyApplication.getDaoInstant().getMusicDao().delete(item);
-
+                    ((HistoryListActivity)mContext).changeNum();
                 }
             }
         });

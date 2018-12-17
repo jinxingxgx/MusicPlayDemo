@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/selected_expand"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:clickable="true"
+        android:src="@drawable/souqi" />
+
+    <ImageView
+        android:id="@+id/selected_time"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@+id/selected_expand"
+        android:clickable="true"
+        android:src="@drawable/datepicker" />
+
+    <ImageView
+        android:id="@+id/selected_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@id/selected_time"
+        android:clickable="true"
+        android:src="@drawable/delete" />
+</RelativeLayout>

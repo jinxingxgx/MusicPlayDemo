@@ -38,3 +38,7 @@ public static java.lang.String TABLENAME;
 -keep public interface net.sqlcipher.database.**
 -dontwarn net.sqlcipher.database.**
 -dontwarn org.greenrobot.greendao.**
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context);
+}
