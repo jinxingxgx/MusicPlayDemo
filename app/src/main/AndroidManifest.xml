@@ -14,15 +14,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:configChanges="screenSize|keyboardHidden|orientation"
-            android:screenOrientation="sensor">
+            android:configChanges="screenSize|keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HistoryListActivity" />
+        <activity
+            android:name=".HistoryListActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
 
         <service
             android:name=".MusicService"

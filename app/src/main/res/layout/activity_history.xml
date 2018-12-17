@@ -11,6 +11,8 @@
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        titlebar:centerSubText="123"
+        titlebar:centerSubTextColor="@color/liv_gray_active_icon"
         titlebar:centerText="历史记录"
         titlebar:centerType="textView"
         titlebar:fillStatusBar="true"

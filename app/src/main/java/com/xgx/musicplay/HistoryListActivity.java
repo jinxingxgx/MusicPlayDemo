@@ -72,6 +72,7 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
 
         });
         mYear = calendarView.getCurYear();
+        titlebar.getCenterSubTextView().setText(mYear + "年");
         selectedTime = titlebar.getRightCustomView().findViewById(R.id.selected_time);
         selectedDelete = titlebar.getRightCustomView().findViewById(R.id.selected_delete);
         selectedExpand = titlebar.getRightCustomView().findViewById(R.id.selected_expand);
@@ -203,6 +204,8 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
     @Override
     public void onYearChange(int year) {
         currentTime = calendarView.getCurYear() + "-" + calendarView.getCurMonth() + "-" + calendarView.getCurDay();
+        mYear = year;
+        titlebar.getCenterSubTextView().setText(year + "年");
         page = 0;
         getData();
         numTv.setText("#" + currentTime + " 查询到" + mAdapter.getItemCount() + "条记录");
