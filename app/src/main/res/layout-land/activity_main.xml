@@ -49,6 +49,14 @@
         app:qrcv_topOffset="65dp"
         app:qrcv_verticalBias="-1" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="30dp"
+        android:layout_toLeftOf="@+id/emptyView"
+        android:src="@drawable/logo2"></ImageView>
+
     <TextView
         android:id="@+id/fileNameTv"
         android:layout_width="wrap_content"
