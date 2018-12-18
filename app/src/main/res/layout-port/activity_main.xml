@@ -36,7 +36,7 @@
         app:qrcv_isShowTipBackground="true"
         app:qrcv_isShowTipTextAsSingleLine="false"
         app:qrcv_isTipTextBelowRect="false"
-        app:qrcv_maskColor="#33FFFFFF"
+        app:qrcv_maskColor="@color/colorPrimaryDark"
         app:qrcv_qrCodeTipText="将二维码放入框内，即可自动扫描。间隔20秒扫描一次"
         app:qrcv_rectWidth="200dp"
         app:qrcv_scanLineColor="@color/colorPrimaryDark"
@@ -48,16 +48,24 @@
         app:qrcv_topOffset="65dp"
         app:qrcv_verticalBias="-1" />
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fileNameTv"
+        android:layout_below="@+id/emptyView"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:src="@drawable/logo2"></ImageView>
+
     <TextView
         android:id="@+id/fileNameTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
+        android:layout_above="@+id/timeLayout"
         android:drawablePadding="@dimen/dp_10"
-        android:drawableTop="@drawable/logo3"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="10dp"
         android:textColor="@android:color/white"
         android:textSize="20sp"></TextView>
 
@@ -66,7 +74,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
         android:gravity="center"
         android:padding="16dp"
         android:text="当前播放目录："
@@ -74,10 +81,11 @@
         android:textSize="18sp"></TextView>
 
     <LinearLayout
+        android:id="@+id/timeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/resultTv"
         android:layout_alignParentBottom="true"
-
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:orientation="horizontal">

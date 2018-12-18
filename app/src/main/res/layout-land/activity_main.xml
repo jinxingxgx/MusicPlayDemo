@@ -37,7 +37,7 @@
         app:qrcv_isShowTipBackground="true"
         app:qrcv_isShowTipTextAsSingleLine="false"
         app:qrcv_isTipTextBelowRect="false"
-        app:qrcv_maskColor="#33FFFFFF"
+        app:qrcv_maskColor="@color/colorPrimaryDark"
         app:qrcv_qrCodeTipText="将二维码放入框内，即可自动扫描。间隔20秒扫描一次"
         app:qrcv_rectWidth="150dp"
         app:qrcv_scanLineColor="@color/colorPrimaryDark"
