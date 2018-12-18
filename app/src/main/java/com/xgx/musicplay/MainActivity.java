@@ -507,11 +507,6 @@ public class MainActivity extends AppCompatActivity implements QRCodeView.Delega
 
     @OnClick({R.id.changeCameraBtn, R.id.historyBtn})
     public void onViewClicked(View view) {
-        if (!Utils.checkIsDemo()) {
-            Toast.makeText(this, "已过试用期，请联系管理员", Toast.LENGTH_SHORT).show();
-
-            return;
-        }
         switch (view.getId()) {
             case R.id.changeCameraBtn:
                 if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {
