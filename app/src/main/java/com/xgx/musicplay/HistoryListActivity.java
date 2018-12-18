@@ -46,7 +46,8 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
     private List<Music> data;
     private MusicHistoryListAdapter mAdapter;
     private long delayMillis = 500;
-    private long TOTAL_COUNTER;
+    private long TOTAL_COUNTER = 0;
+    private long ZHONGJIANG_COUNTER = 0;
     private int mCurrentCounter;
     private boolean isErr = true;
     private int page = 0;
@@ -165,7 +166,7 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
     }
 
     public void changeNum() {
-        numTv.setText("#" + currentTime + " 查询到" + mAdapter.getData().size() + "条记录");
+        numTv.setText("#" + currentTime + " 查询到" + TOTAL_COUNTER + "条记录(中奖" + ZHONGJIANG_COUNTER + "条)");
 
     }
 
@@ -173,15 +174,18 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
         //根据page分页
         MusicDao dao = MyApplication.getDaoInstant().getMusicDao();
         QueryBuilder builder = dao.queryBuilder();
+        builder.where(MusicDao.Properties.Scantime.like("%" + currentTime + "%"));
         TOTAL_COUNTER = builder.count();
-        List<Music> listMsg = builder.where(MusicDao.Properties.Scantime.like("%" + currentTime + "%")).orderDesc(MusicDao.Properties.Id).offset(page * 10).limit(10).list();
+        ZHONGJIANG_COUNTER = builder.where(MusicDao.Properties.IsPrize.eq(true)).count();
+        QueryBuilder builder1 = dao.queryBuilder();
+        List<Music> listMsg = builder1.where(MusicDao.Properties.Scantime.like("%" + currentTime + "%")).orderDesc(MusicDao.Properties.Id).offset(page * 10).limit(10).list();
         if (page == 0) {
             mAdapter.setNewData(listMsg);
         } else {
             mAdapter.addData(listMsg);
         }
         page++;
-        numTv.setText("#" + currentTime + " 查询到" + mAdapter.getData().size() + "条记录");
+        numTv.setText("#" + currentTime + " 查询到" + TOTAL_COUNTER + "条记录(中奖" + ZHONGJIANG_COUNTER + "条)");
 
     }
 
