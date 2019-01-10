@@ -161,7 +161,7 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
         }, lv);
         lv.setAdapter(mAdapter);
         page = 0;
-        currentTime = calendarView.getCurYear() + "-" + calendarView.getCurMonth() + "-" + calendarView.getCurDay();
+        setCurrentTime();
         getData();
     }
 
@@ -197,7 +197,21 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
     @SuppressLint("SetTextI18n")
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
-        currentTime = calendar.getYear() + "-" + calendar.getMonth() + "-" + calendar.getDay();
+        String moth = "";
+        String day = "";
+        if (calendar.getMonth() < 10) {
+            moth = "0" + calendar.getMonth();
+        } else {
+            moth = calendar.getMonth() + "";
+
+        }
+        if (calendar.getDay() < 10) {
+            day = "0" + calendar.getDay();
+        } else {
+            day = calendar.getDay() + "";
+
+        }
+        currentTime = calendar.getYear() + "-" + moth + "-" + day;
         page = 0;
         getData();
 
@@ -207,13 +221,31 @@ public class HistoryListActivity extends Activity implements CalendarView.OnCale
 
     @Override
     public void onYearChange(int year) {
-        currentTime = calendarView.getCurYear() + "-" + calendarView.getCurMonth() + "-" + calendarView.getCurDay();
+        setCurrentTime();
         mYear = year;
         titlebar.getCenterSubTextView().setText(year + "年");
         page = 0;
         getData();
         numTv.setText("#" + currentTime + " 查询到" + mAdapter.getItemCount() + "条记录");
 
+    }
+
+    private void setCurrentTime() {
+        String moth = "";
+        String day = "";
+        if (calendarView.getCurMonth() < 10) {
+            moth = "0" + calendarView.getCurMonth();
+        } else {
+            moth = calendarView.getCurMonth() + "";
+
+        }
+        if (calendarView.getCurDay() < 10) {
+            day = "0" + calendarView.getCurDay();
+        } else {
+            day = calendarView.getCurDay() + "";
+
+        }
+        currentTime = calendarView.getCurYear() + "-" + moth + "-" + day;
     }
 
 
