@@ -20,7 +20,7 @@
         app:qrcv_animTime="1000"
         app:qrcv_barCodeTipText="将条码放入框内，即可自动扫描"
         app:qrcv_barcodeRectHeight="120dp"
-        app:qrcv_borderColor="@android:color/white"
+        app:qrcv_borderColor="@color/white"
         app:qrcv_borderSize="1dp"
         app:qrcv_cornerColor="@color/colorPrimaryDark"
         app:qrcv_cornerDisplayType="center"
@@ -43,7 +43,7 @@
         app:qrcv_scanLineColor="@color/colorPrimaryDark"
         app:qrcv_scanLineMargin="0dp"
         app:qrcv_scanLineSize="0.5dp"
-        app:qrcv_tipTextColor="@android:color/white"
+        app:qrcv_tipTextColor="@color/white"
         app:qrcv_tipTextSize="12sp"
         app:qrcv_toolbarHeight="56dp"
         app:qrcv_topOffset="65dp"
@@ -116,6 +116,13 @@
             android:text="00:00"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/open_flashlight"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf="@+id/changeCameraBtn"
+        android:background="@drawable/dengpao_close"></TextView>
 
     <TextView
         android:id="@+id/changeCameraBtn"

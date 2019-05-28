@@ -22,7 +22,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.TimeUtils;
@@ -66,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements QRCodeView.Delega
     TextView changeCameraBtn;
     @BindView(R.id.historyBtn)
     TextView historyBtn;
+    @BindView(R.id.timeLayout)
+    LinearLayout timeLayout;
+    @BindView(R.id.open_flashlight)
+    TextView openFlashlight;
     private boolean isStop = true;    //判断是否音乐播放状态
     private MusicService musicService;
     private boolean mBound = false;
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements QRCodeView.Delega
     private FireWorkView fireWorkView5;
     private int cameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
     private Music music = null;
+    private boolean isOpen = false;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -505,9 +509,19 @@ public class MainActivity extends AppCompatActivity implements QRCodeView.Delega
         }
     };
 
-    @OnClick({R.id.changeCameraBtn, R.id.historyBtn})
+    @OnClick({R.id.changeCameraBtn, R.id.historyBtn, R.id.open_flashlight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.open_flashlight:
+                if (isOpen) {
+                    isOpen = false;
+                    mZXingView.closeFlashlight();
+
+                } else {
+                    isOpen = true;
+                    mZXingView.openFlashlight();
+                }
+                break;
             case R.id.changeCameraBtn:
                 if (cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {
                     cameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
